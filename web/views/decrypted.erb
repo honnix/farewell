@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Farewell Letter Decryptor</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/decryptor.css" rel="stylesheet">
+    <link href="css/markdown.css" rel="stylesheet">
+  </head>
+  <body>
+    <a href="https://github.com/honnix/farewell"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <div class="container">
+      <%= include("nav.erb") %>
+      <br /><br />
+      <h1 style="color: #A4A4A4;">It's time to say goodbye...</h1>
+      <br />
+      <p><%= @decrypted %></p>
+      <legend></legend>
+      <a href="http://facebook.com/honnix">
+        <img src="http://www.socialmediabuttons.com/images/facebook6.gif" title="By SocialMediaButtons.com" />
+      </a>
+      <a href="https://twitter.com/honnix"
+         class="twitter-follow-button"
+         data-show-count="false">Follow @honnix</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      <iframe width="63" height="24" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" border="0" src="http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=63&height=24&uid=2169116987&style=1&btn=light&dpc=1"></iframe>
+    </div>
+  </body>
+</html>

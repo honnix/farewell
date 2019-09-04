@@ -1,0 +1,52 @@
+sudo: required
+dist: trusty
+language: ruby
+rvm:
+  - 1.9.3
+jdk:
+  - oraclejdk7
+before_install:
+  - sudo add-apt-repository ppa:swi-prolog/stable -y
+  - wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
+  - sudo apt-get -qq update
+  - sudo apt-get -y install build-essential
+  - sudo apt-get -y install golang-go
+  - sudo apt-get -y install scala groovy
+  - sudo apt-get -y install mono-runtime mono-gmcs mono-vbnc mono-devel unzip
+  - sudo apt-get -y install haskell-platform clisp lua5.1
+  - sudo apt-get -y install esl-erlang elixir
+  - sudo apt-get -y install ocaml ocaml-findlib libextlib-ocaml libextlib-ocaml-dev
+  - sudo apt-get -y install clojure1.4
+  - sudo apt-get -y install nodejs npm
+  - sudo apt-get -y install octave
+  - sudo apt-get -y install swi-prolog
+  - sudo apt-get -y install tcl
+  - sudo apt-get -y install clang libicu-dev
+  - sudo apt-get -y install apt-transport-https
+  - sudo sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
+  - sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
+  - sudo apt-get update
+  - sudo apt-get -y install dart
+  - sudo npm install -g coffee-script
+  - export CUR_DIR=$PWD
+  - mkdir -p ~/bin; cd ~/bin
+  - wget http://download.microsoft.com/download/6/B/6/6B6BFB83-3D3A-467C-8080-01F7A953A37F/fsharp.zip
+  - unzip fsharp.zip; cd FSharp-2.0.0.0
+  - chmod +x install-mono.sh
+  - ./install-mono.sh
+  - wget -O mono.snk http://github.com/mono/mono/raw/master/mcs/class/mono.snk
+  - sudo ./install-mono.sh; cd $CUR_DIR
+  - curl -sf -L https://static.rust-lang.org/rustup.sh | sh
+  - export CUR_DIR=$PWD
+  - cd ~/bin
+  - wget https://swift.org/builds/swift-3.0.1-release/ubuntu1404/swift-3.0.1-RELEASE/swift-3.0.1-RELEASE-ubuntu14.04.tar.gz
+  - tar zxvf swift-3.0.1-RELEASE-ubuntu14.04.tar.gz; cd $CUR_DIR
+  - export PATH=~/bin/swift-3.0.1-RELEASE-ubuntu14.04/usr/bin:/usr/local/bin/:$PATH
+branches:
+  only:
+    - master
+script:
+  - rake --trace
+notifications:
+  email:
+    - hxliang1982@gmail.com

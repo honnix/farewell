@@ -1,0 +1,13 @@
+*.enc
+*.dec
+*.class
+*.pyc
+farewell
+*.o
+*.hi
+*.beam
+*.dump
+*.exe
+*.cmi
+*.cmo
+*.togo

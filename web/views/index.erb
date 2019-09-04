@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Farewell Letter Decryptor</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/decryptor.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <%= include("nav.erb") %>
+      <div class="header-image"></div>
+      <form class="form-horizontal" method="post">
+        <fieldset>
+          <legend></legend>
+          <div class="control-group">
+            <div>
+              <textarea class="input-xxxlarge" id="encrypted" name="encrypted" rows="15"></textarea>
+              <p class="help-block">Paste encrypted content here, do not fool me</p>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Decrypt it!</button>
+              <button type="reset" class="btn">Clear</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>

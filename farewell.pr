@@ -1,0 +1,25 @@
+:- use_module(library(readutil)).
+:- use_module(library(lists)).
+
+decrypt(File) :-
+    read_file_to_string(File, S0, []),
+    split_string(S0, ",", "\s\t\n", S1),
+    key(Key0),
+    string_codes(Key0, Key),
+    length(Key, Length),
+    decrypt(S1, [], S2, Key, Length, 0),
+    reverse(S2, S3),
+    string_codes(S4, S3),
+    set_stream(current_output, encoding(octet)),
+    write(S4).
+
+decrypt([], S, S, _, _, _) :- !.
+decrypt([H|T], S1, S2, Key, Length, I) :-
+    number_string(N1, H),
+    Index is I mod Length,
+    nth0(Index, Key, N2),
+    N3 is N1 xor N2,
+    I1 is I + 1,
+    decrypt(T, [N3|S1], S2, Key, Length, I1).
+
+key("i hope in the next ten years there would be no other farewell letter brilliant than this one").

@@ -1,0 +1,14 @@
+.header-image {
+  background-image: url('../img/banner.jpg');
+  height: 188px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.input-xxxlarge {
+  width: 940px;
+}
+
+.form-horizontal .form-actions {
+  padding-left: 10px;
+}
